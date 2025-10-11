@@ -7,13 +7,16 @@ Checks pool heater status and sends email alerts when it turns ON
 import os
 import json
 import requests
+import smtplib
+from email.message import EmailMessage
 from datetime import datetime
 from pathlib import Path
 
 # Configuration from environment variables
 POOL_API_CODE = os.environ['POOL_API_CODE']
 EMAIL_TO = os.environ['EMAIL_TO']
-SENDGRID_API_KEY = os.environ['SENDGRID_API_KEY']
+GMAIL_ADDRESS = os.environ['GMAIL_ADDRESS']
+GMAIL_APP_PASSWORD = os.environ['GMAIL_APP_PASSWORD']
 
 # File paths
 STATE_FILE = Path('previous_state.json')
@@ -31,7 +34,7 @@ def get_pool_status():
     return response.json()
 
 def send_email_alert(previous_state, current_state):
-    """Send email alert via SendGrid"""
+    """Send email alert via Gmail SMTP"""
     timestamp = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')
     
     email_body = f"""Pool gas heater has turned ON at {timestamp}
@@ -42,25 +45,18 @@ def send_email_alert(previous_state, current_state):
 === CURRENT STATE (Heater ON) ===
 {json.dumps(current_state, indent=2)}"""
     
-    url = 'https://api.sendgrid.com/v3/mail/send'
-    headers = {
-        'Authorization': f'Bearer {SENDGRID_API_KEY}',
-        'Content-Type': 'application/json'
-    }
-    payload = {
-        'personalizations': [{
-            'to': [{'email': EMAIL_TO}]
-        }],
-        'from': {'email': EMAIL_TO},
-        'subject': '🔥 ALERT: Pool Heater Turned ON',
-        'content': [{
-            'type': 'text/plain',
-            'value': email_body
-        }]
-    }
+    # Create email message
+    msg = EmailMessage()
+    msg['Subject'] = '🔥 ALERT: Pool Heater Turned ON'
+    msg['From'] = GMAIL_ADDRESS
+    msg['To'] = EMAIL_TO
+    msg.set_content(email_body)
     
-    response = requests.post(url, headers=headers, json=payload)
-    response.raise_for_status()
+    # Send via Gmail SMTP
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login(GMAIL_ADDRESS, GMAIL_APP_PASSWORD)
+        smtp.send_message(msg)
+    
     print("✅ Alert email sent!")
 
 def main():

@@ -26,7 +26,8 @@ jobs:
         env:
           POOL_API_CODE: ${{ secrets.POOL_API_CODE }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: python pool_monitor.py
       
       - name: Commit state
