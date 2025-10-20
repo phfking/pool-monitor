@@ -1,12 +1,12 @@
 {
-  "pool_spa_selection": 0,
+  "pool_spa_selection": 1,
   "heat_cool_selection": 1,
-  "temperature": 35,
+  "temperature": 22,
   "active_favourite": 255,
   "heaters": [
     {
       "heater_number": 1,
-      "mode": 1,
+      "mode": 0,
       "set_temperature": 25,
       "spa_set_temperature": 36
     }
@@ -25,22 +25,22 @@
     },
     {
       "channel_number": 1,
-      "mode": 0
+      "mode": 1
     },
     {
       "channel_number": 2,
-      "mode": 0
+      "mode": 1
     },
     {
       "channel_number": 5,
-      "mode": 0
+      "mode": 1
     }
   ],
   "valves": [],
   "lighting_zones": [
     {
       "lighting_zone_number": 0,
-      "mode": 0,
+      "mode": 1,
       "color": 14
     }
   ]
