@@ -2,7 +2,7 @@
   "pool_spa_selection": 1,
   "heat_cool_selection": 1,
   "temperature": 21,
-  "active_favourite": 129,
+  "active_favourite": 255,
   "heaters": [
     {
       "heater_number": 1,
@@ -14,14 +14,14 @@
   "solar_systems": [
     {
       "solar_number": 3,
-      "mode": 1,
+      "mode": 0,
       "set_temperature": 30
     }
   ],
   "channels": [
     {
       "channel_number": 0,
-      "mode": 1
+      "mode": 4
     },
     {
       "channel_number": 1,
