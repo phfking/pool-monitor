@@ -1,8 +1,8 @@
 {
   "pool_spa_selection": 0,
   "heat_cool_selection": 1,
-  "temperature": 37,
-  "active_favourite": 1,
+  "temperature": 38,
+  "active_favourite": 3,
   "heaters": [
     {
       "heater_number": 1,
@@ -40,8 +40,8 @@
   "lighting_zones": [
     {
       "lighting_zone_number": 0,
-      "mode": 0,
-      "color": 14
+      "mode": 2,
+      "color": 13
     }
   ]
 }
