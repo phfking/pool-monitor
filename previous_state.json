@@ -14,7 +14,7 @@
   "solar_systems": [
     {
       "solar_number": 3,
-      "mode": 0,
+      "mode": 1,
       "set_temperature": 30
     }
   ],
