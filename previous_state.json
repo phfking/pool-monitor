@@ -21,7 +21,7 @@
   "channels": [
     {
       "channel_number": 0,
-      "mode": 0
+      "mode": 1
     },
     {
       "channel_number": 1,
