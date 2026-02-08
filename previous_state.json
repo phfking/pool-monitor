@@ -1,14 +1,14 @@
 {
   "pool_spa_selection": 0,
   "heat_cool_selection": 1,
-  "temperature": 36,
+  "temperature": 37,
   "active_favourite": 3,
   "heaters": [
     {
       "heater_number": 1,
       "mode": 1,
       "set_temperature": 25,
-      "spa_set_temperature": 37
+      "spa_set_temperature": 36
     }
   ],
   "solar_systems": [
