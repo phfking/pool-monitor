@@ -6,7 +6,7 @@
   "heaters": [
     {
       "heater_number": 1,
-      "mode": 0,
+      "mode": 1,
       "set_temperature": 25,
       "spa_set_temperature": 37
     }
