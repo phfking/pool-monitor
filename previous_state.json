@@ -1,8 +1,8 @@
 {
   "pool_spa_selection": 1,
   "heat_cool_selection": 1,
-  "temperature": 13,
-  "active_favourite": 129,
+  "temperature": 14,
+  "active_favourite": 255,
   "heaters": [
     {
       "heater_number": 1,
